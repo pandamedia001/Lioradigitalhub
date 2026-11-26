@@ -183,7 +183,7 @@ footer .footer-brand,footer .footer-tag{display:none !important}
 <body>
 <header class="topbar"><nav class="nav wrap">
  <a class="logo-box" href="index.html" aria-label="Liora home"><img src="logo.png" alt="Liora logo"></a>
- <div class="navlinks"><a href="index.html">Home</a><a href="#activate">Register</a></div>
+ <div class="navlinks"><a href="index.html">Home</a><a href="register.html">Register</a></div>
 </nav></header>
 
 <main class="page">
@@ -192,7 +192,7 @@ footer .footer-brand,footer .footer-tag{display:none !important}
   <div class="kicker">One Time Onboarding</div>
   <span class="old-price">₦25,000</span>
   <div class="main-price">₦15,000</div>
-  <div class="countdown"><i class="countdown-dot"></i> Limited slots left <strong id="countdown">30:00</strong></div>
+  <div class="countdown"><i class="countdown-dot"></i> Discount ends in <strong id="countdown">30:00</strong></div>
  </div>
 
  <section class="group">
@@ -248,7 +248,7 @@ footer .footer-brand,footer .footer-tag{display:none !important}
   </div>
  </section>
 
- <a class="activate-btn" id="activate" href="mailto:lioraofficial@gmail.com?subject=Liora%20Account%20Activation">Activate Liora Account</a>
+ <a class="activate-btn" id="activate" href="register.html">Activate Liora Account</a>
  <p class="card-note">INSTANT PAYOUTS & GLOBAL PROJECT PIPELINES INTEGRATED</p>
 </section>
 </main>
@@ -272,36 +272,36 @@ footer .footer-brand,footer .footer-tag{display:none !important}
  };
  // Illustrative Liora activity examples, not live or verified customer transactions.
  const notices=[
-  {icon:'trade',name:'Kofi (South Africa)',action:'Withdrew Trade For You profit <strong>₦150,000</strong>',time:'10m ago'},
-  {icon:'recommend',name:'Amara (Nigeria)',action:'Recommended a product for a brand <strong>₦30,000</strong>',time:'5m ago'},
+  {icon:'trade',name:'Kofi (Lagos)',action:'Withdrew Trade For You profit <strong>₦150,000</strong>',time:'10m ago'},
+  {icon:'recommend',name:'Amara (Enugu)',action:'Recommended a product for a brand <strong>₦30,000</strong>',time:'5m ago'},
   {icon:'dividend',name:'Chika (Ghana)',action:'Claimed weekly dividend <strong>₦85,000</strong>',time:'1h ago'},
-  {icon:'account',name:'Daniel (Kenya)',action:'Activated a Liora shareholder account',time:'Just now'},
-  {icon:'trade',name:'Emmanuel (South Africa)',action:'Closed a Trade For You position in profit <strong>₦250,000</strong>',time:'15m ago'},
-  {icon:'recommend',name:'Tobi (Nigeria)',action:'Recommended a product for a brand <strong>₦48,000</strong>',time:'8m ago'},
+  {icon:'account',name:'Daniel (Port harcourt)',action:'Activated a Liora shareholder account',time:'Just now'},
+  {icon:'trade',name:'Emmanuel (Benin)',action:'Closed a Trade For You position in profit <strong>₦250,000</strong>',time:'15m ago'},
+  {icon:'recommend',name:'Tobi (Cameroon)',action:'Recommended a product for a brand <strong>₦48,000</strong>',time:'8m ago'},
   {icon:'dividend',name:'Mariam (Ghana)',action:'Claimed weekly dividend <strong>₦88,000</strong>',time:'2h ago'},
-  {icon:'trade',name:'David (Nigeria)',action:'Withdrew Trade For You profit <strong>₦45,000</strong>',time:'20m ago'},
-  {icon:'recommend',name:'Seyi (United Kingdom)',action:'Completed a brand recommendation <strong>₦22,000</strong>',time:'12m ago'},
-  {icon:'trade',name:'Emmanuel (South Africa)',action:'Received Trade For You profit <strong>₦10,500</strong>',time:'Just now'},
-  {icon:'account',name:'Ada (Nigeria)',action:'Activated a Liora shareholder account',time:'3m ago'},
+  {icon:'trade',name:'David (Anambra)',action:'Withdrew Trade For You profit <strong>₦45,000</strong>',time:'20m ago'},
+  {icon:'recommend',name:'Seyi (Delta)',action:'Completed a brand recommendation <strong>₦22,000</strong>',time:'12m ago'},
+  {icon:'trade',name:'Emmanuel (Abuja)',action:'Received Trade For You profit <strong>₦10,500</strong>',time:'Just now'},
+  {icon:'account',name:'Ada (Owerri)',action:'Activated a Liora shareholder account',time:'3m ago'},
   {icon:'dividend',name:'Kwame (Ghana)',action:'Claimed weekly dividend <strong>₦48,000</strong>',time:'25m ago'},
   {icon:'trade',name:'Amina (Kenya)',action:'Withdrew Trade For You profit <strong>₦88,000</strong>',time:'7m ago'},
-  {icon:'recommend',name:'Zara (United Kingdom)',action:'Recommended a product for a brand <strong>₦22,000</strong>',time:'18m ago'},
-  {icon:'account',name:'Ibrahim (Nigeria)',action:'Activated a Liora shareholder account',time:'Just now'},
-  {icon:'trade',name:'Thabo (South Africa)',action:'Closed a Trade For You position in profit <strong>₦45,000</strong>',time:'14m ago'},
+  {icon:'recommend',name:'Zara (Enugu)',action:'Recommended a product for a brand <strong>₦22,000</strong>',time:'18m ago'},
+  {icon:'account',name:'Ibrahim (Kano)',action:'Activated a Liora shareholder account',time:'Just now'},
+  {icon:'trade',name:'Thabo (Akwa ibom)',action:'Closed a Trade For You position in profit <strong>₦45,000</strong>',time:'14m ago'},
   {icon:'dividend',name:'Nana (Ghana)',action:'Claimed weekly dividend <strong>₦30,000</strong>',time:'40m ago'},
-  {icon:'recommend',name:'Musa (Nigeria)',action:'Completed a brand recommendation <strong>₦10,500</strong>',time:'9m ago'},
+  {icon:'recommend',name:'Musa (Kaduna)',action:'Completed a brand recommendation <strong>₦10,500</strong>',time:'9m ago'},
   {icon:'trade',name:'Lerato (South Africa)',action:'Received Trade For You profit <strong>₦150,000</strong>',time:'Just now'},
   {icon:'account',name:'Fatima (Kenya)',action:'Activated a Liora shareholder account',time:'6m ago'},
   {icon:'dividend',name:'Esi (Ghana)',action:'Claimed weekly dividend <strong>₦85,000</strong>',time:'32m ago'},
-  {icon:'recommend',name:'Chinedu (Nigeria)',action:'Recommended a product for a brand <strong>₦48,000</strong>',time:'11m ago'},
+  {icon:'recommend',name:'Chinedu (Enugu)',action:'Recommended a product for a brand <strong>₦48,000</strong>',time:'11m ago'},
   {icon:'trade',name:'Sipho (South Africa)',action:'Withdrew Trade For You profit <strong>₦250,000</strong>',time:'Just now'},
-  {icon:'account',name:'Ayo (Nigeria)',action:'Activated a Liora shareholder account',time:'4m ago'},
+  {icon:'account',name:'Ayo (Lagos)',action:'Activated a Liora shareholder account',time:'4m ago'},
   {icon:'dividend',name:'Abena (Ghana)',action:'Claimed weekly dividend <strong>₦88,000</strong>',time:'1h ago'},
   {icon:'trade',name:'Brian (Kenya)',action:'Closed a Trade For You position in profit <strong>₦30,000</strong>',time:'16m ago'},
-  {icon:'recommend',name:'Olamide (Nigeria)',action:'Completed a brand recommendation <strong>₦45,000</strong>',time:'Just now'},
+  {icon:'recommend',name:'Olamide (Lagos)',action:'Completed a brand recommendation <strong>₦45,000</strong>',time:'Just now'},
   {icon:'account',name:'Zanele (South Africa)',action:'Activated a Liora shareholder account',time:'13m ago'},
   {icon:'dividend',name:'Kojo (Ghana)',action:'Claimed weekly dividend <strong>₦22,000</strong>',time:'27m ago'},
-  {icon:'trade',name:'Miriam (Kenya)',action:'Withdrew Trade For You profit <strong>₦10,500</strong>',time:'Just now'}
+  {icon:'trade',name:'Miriam (Port harcourt)',action:'Withdrew Trade For You profit <strong>₦10,500</strong>',time:'Just now'}
  ];
  const toast=document.getElementById('activityToast'),icon=document.getElementById('toastIcon'),name=document.getElementById('toastName'),action=document.getElementById('toastAction'),time=document.getElementById('toastTime');
  let i=0,hide;
