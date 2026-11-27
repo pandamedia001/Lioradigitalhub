@@ -100,11 +100,83 @@ footer{text-align:center;padding:22px 15px 28px;border-top:1px solid rgba(217,17
 .error{color:#ff999c;font-size:11px;line-height:1.5;margin-top:10px}
 @media(max-width:480px){.topbar{height:64px}.logo{font-size:18px}main{margin:27px auto 38px}.account-card{padding:16px 13px}.instructions{padding:14px 15px}.account-row{padding:14px 13px}.account-value{font-size:19px}.glass-modal{padding:20px;border-radius:20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition:none!important}}
+  .total-transfer-card {
+  margin: 18px 0;
+  padding: 22px 20px;
+  border: 1px solid rgba(217, 173, 69, 0.3);
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(35, 29, 17, 0.98),
+    rgba(15, 15, 14, 0.98)
+  );
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(255, 230, 170, 0.07);
+}
+
+.total-transfer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.total-transfer-top span {
+  color: #d1bd8a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.total-transfer-top strong {
+  color: #f5d987;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.total-transfer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.total-transfer-amount {
+  color: #ffe39a;
+  font-size: clamp(38px, 9vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 0 18px rgba(217, 173, 69, 0.12);
+}
+
+.total-transfer-bottom span {
+  color: #c8b991;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.5;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .total-transfer-card {
+    padding: 19px 15px;
+    border-radius: 20px;
+  }
+
+  .total-transfer-amount {
+    font-size: 39px;
+  }
+}
 </style>
 </head>
 <body>
 <header class="topbar">
-  <a class="logo" href="index.html" aria-label="Liora home"><img src="liora-logo.PNG" alt="Liora logo"></a>
+  <a class="logo" href="index.html" aria-label="Liora home"><img src="logo.png" alt="Liora logo"></a>
   <div class="secure"><svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Secure activation</div>
 </header>
 
@@ -142,6 +214,18 @@ footer{text-align:center;padding:22px 15px 28px;border-top:1px solid rgba(217,17
       <div class="account-value" id="accountName">panda xclusive media</div>
     </div>
   </section>
+
+  <section class="total-transfer-card">
+  <div class="total-transfer-top">
+    <span>SUM TOTAL TO TRANSFER</span>
+    <strong>LIORA SHAREHOLDER</strong>
+  </div>
+
+  <div class="total-transfer-bottom">
+    <div class="total-transfer-amount">₦15,000</div>
+    <span>Please transfer the exact amount</span>
+  </div>
+</section>
 
   <section class="instructions">
     <h2>Payment instructions</h2>
