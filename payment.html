@@ -268,7 +268,7 @@ footer{text-align:center;padding:22px 15px 28px;border-top:1px solid rgba(217,17
   <div class="glass-modal upload-modal">
     <button class="x-close" id="closeReceipt" type="button" aria-label="Close">×</button>
     <h2 class="pending-title" id="pendingTitle"><span class="pulse"></span>Pending Activation</h2>
-    <p class="upload-sub">Select a clear image or PDF of your payment receipt, then continue to Telegram to send it to the Liora admin.</p>
+    <p class="upload-sub">Select a clear image or PDF of your payment receipt, then continue to Telegram to complete your activation.</p>
     <input class="hidden" id="receiptInput" type="file" accept="image/*,application/pdf">
     <label class="upload-box" for="receiptInput" id="uploadBox">
       <svg viewBox="0 0 24 24"><path d="M12 16V4m-4 4 4-4 4 4"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg>
@@ -479,7 +479,7 @@ PAID VIA VERIFIED MERCHANT✅
 I will send my proof/receipt of payment now. Please confirm my details and complete my activation. Thank you.`;
   $("telegramConfirm").disabled = true;
   $("telegramConfirm").textContent = "Redirecting....";
-  $("uploadError").textContent = "Please do not upload a fale receipt or any random image that is not your original payment receipt.";
+  $("uploadError").textContent = "Please do not upload a fake receipt or any random image that is not your original payment receipt.";
 setTimeout(() => {
     window.location.href = telegramUrl + "?text=" + encodeURIComponent(message);
   }, 3500);
