@@ -79,7 +79,7 @@ footer{text-align:center;padding:22px 15px 28px;border-top:1px solid rgba(217,17
 .preview-meta strong{display:block;font-size:11px;overflow-wrap:anywhere}
 .preview-meta span{font-size:10px;color:var(--muted)}
 .remove-file{border:1px solid rgba(255,92,98,.24);background:rgba(255,92,98,.12);color:#ff8589;border-radius:9px;padding:9px 12px;font-size:11px;font-weight:750;cursor:pointer}.replace-file{border:1px solid rgba(217,173,69,.25);background:rgba(217,173,69,.1);color:var(--gold-light);border-radius:9px;padding:9px 12px;font-size:11px;font-weight:750;cursor:pointer}
-.telegram-btn{display:none;width:100%;height:48px;border:0;border-radius:12px;background:#229ed9;color:white;font-size:13px;font-weight:750;cursor:pointer;margin-top:14px}
+.telegram-btn{display:none;width:100%;height:48px;border:0;border-radius:12px;background:#229ed9;color:white;font-size:14px;font-weight:750;cursor:pointer;margin-top:14px}
 .telegram-btn.show{display:block}
 .telegram-btn:disabled{opacity:.65;cursor:wait}
 .cancel-btn{width:100%;height:43px;margin-top:10px;border:1px solid rgba(255,92,98,.25);border-radius:12px;background:rgba(255,92,98,.09);color:#ff777c;font-size:12px;font-weight:700;cursor:pointer}
@@ -104,7 +104,7 @@ footer{text-align:center;padding:22px 15px 28px;border-top:1px solid rgba(217,17
 </head>
 <body>
 <header class="topbar">
-  <a class="logo" href="index.html" aria-label="Liora home"><img src="liora-logo.png" alt="Liora logo"></a>
+  <a class="logo" href="index.html" aria-label="Liora home"><img src="liora-logo.PNG" alt="Liora logo"></a>
   <div class="secure"><svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Secure activation</div>
 </header>
 
@@ -192,12 +192,11 @@ footer{text-align:center;padding:22px 15px 28px;border-top:1px solid rgba(217,17
       <iframe class="receipt-pdf" id="previewPdf" title="Payment receipt PDF"></iframe>
       <div class="preview-actions">
         <div class="preview-meta"><strong id="fileName">Receipt selected</strong><span id="fileSize"></span></div>
-        <button class="replace-file" id="replaceFile" type="button">Replace</button>
         <button class="remove-file" id="removeFile" type="button">Remove</button>
       </div>
     </div>
     <div class="error" id="uploadError"></div>
-    <button class="telegram-btn" id="telegramConfirm" type="button">Continue to Telegram</button>
+    <button class="telegram-btn" id="telegramConfirm" type="button">Confirm on Telegram</button>
     <button class="cancel-btn" id="cancelReceipt" type="button">Cancel</button>
   </div>
 </div>
@@ -336,7 +335,7 @@ $("receiptInput").addEventListener("change", () => {
   }
   $("telegramConfirm").classList.add("show");
   $("telegramConfirm").disabled = false;
-  $("telegramConfirm").textContent = "Continue to Telegram";
+  $("telegramConfirm").textContent = "Confirm on Telegram";
 });
 $("replaceFile").addEventListener("click", () => $("receiptInput").click());
 
@@ -357,7 +356,7 @@ function clearReceipt() {
   $("uploadBox").classList.remove("hidden");
   $("telegramConfirm").classList.remove("show");
   $("telegramConfirm").disabled = false;
-  $("telegramConfirm").textContent = "Continue to Telegram";
+  $("telegramConfirm").textContent = "Confirm on Telegram";
   $("uploadError").textContent = "";
 }
 $("removeFile").addEventListener("click", clearReceipt);
@@ -382,9 +381,9 @@ PAID VIA VERIFIED MERCHANT✅
 
 I will send my proof/receipt of payment now. Please confirm my details and complete my activation. Thank you.`;
   $("telegramConfirm").disabled = true;
-  $("telegramConfirm").textContent = "Redirecting to Telegram…";
-  $("uploadError").textContent = "Your receipt stays on this device. Attach it in Telegram when the chat opens.";
-  setTimeout(() => {
+  $("telegramConfirm").textContent = "Redirecting....";
+  $("uploadError").textContent = "Please do not upload a fale receipt or any random image that is not your original payment receipt.";
+setTimeout(() => {
     window.location.href = telegramUrl + "?text=" + encodeURIComponent(message);
   }, 3500);
 });
