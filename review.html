@@ -49,9 +49,48 @@
     @keyframes pending-spin{to{transform:rotate(360deg)}}
     .detail-label{font-size:13px}
     .detail-value{font-size:15px;font-weight:600}
-    .reward-row{margin-top:5px;padding-top:17px!important;border-top:1px solid rgba(217,173,69,.22)}
-    .reward-label{color:var(--gold2);font-size:12px;font-weight:800;letter-spacing:.055em}
-    .reward-value{color:#fff0c8;font-size:15px;font-weight:750;line-height:1.45}
+    .reward-row {
+    margin-top: 5px;
+    padding-top: 17px !important;
+    border-top: 1px solid rgba(217,173,69,.28);
+}
+
+.reward-label {
+    background: linear-gradient(
+        110deg,
+        #fff0b5 0%,
+        #e8bd55 45%,
+        #c58b25 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #e8bd55;
+    font-size: 11.5px;
+    font-weight: 850;
+    letter-spacing: .045em;
+    line-height: 1.5;
+}
+
+.reward-value {
+    background: linear-gradient(
+        110deg,
+        #fff2bd 0%,
+        #f0ce76 45%,
+        #d5a33e 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f0ce76;
+    font-family: -apple-system, BlinkMacSystemFont,
+        "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14.5px;
+    font-weight: 800;
+    letter-spacing: -.025em;
+    line-height: 1.5;
+    text-align: right;
+}
     .status-copy{min-width:0;flex:1}
     .status-copy strong{display:block;font-size:15px;font-weight:650;letter-spacing:-.015em;margin-bottom:4px}
     .status-copy span{display:block;color:var(--muted);font-size:12px;line-height:1.45}
