@@ -2335,12 +2335,12 @@ function addActivity(title,amount){
    // Add each creator's TikTok video URL here. Use a public TikTok video link
    // such as https://www.tiktok.com/@creator/video/1234567890123456789
    const CREATOR_TIKTOK_LINKS = {
-    'Purple Speedy': 'PASTE_PURPLE_SPEEDY_TIKTOK_VIDEO_URL_HERE',
-    'Peller': 'PASTE_PELLER_TIKTOK_VIDEO_URL_HERE',
-    'IShowSpeed': 'PASTE_ISHOWSPEED_TIKTOK_VIDEO_URL_HERE',
-    'MrBeast': 'PASTE_MRBEAST_TIKTOK_VIDEO_URL_HERE',
-    'Khaby Lame': 'PASTE_KHABY_LAME_TIKTOK_VIDEO_URL_HERE',
-    'Katafe': 'PASTE_KATAFE_TIKTOK_VIDEO_URL_HERE'
+    'Purple Speedy': 'https://vt.tiktok.com/ZSsSwugoL/',
+    'Peller': 'https://vt.tiktok.com/ZSsSwEmYQ/',
+    'IShowSpeed': 'https://vt.tiktok.com/ZSsSKAjgQ/',
+    'MrBeast': 'https://vt.tiktok.com/ZSsSKAxrW/',
+    'Khaby Lame': 'https://vt.tiktok.com/ZSsSK8QDw/',
+    'Wizkid': 'https://vt.tiktok.com/ZSsSKWQqN/'
    };
    const creators=Object.keys(CREATOR_TIKTOK_LINKS);
    const list=$('creatorList');
@@ -2374,7 +2374,7 @@ function addActivity(title,amount){
      const url=CREATOR_TIKTOK_LINKS[c];
      $('creatorVideoLabel').textContent=c+' · TikTok video';
      videoStatus.textContent='';
-     videoBox.innerHTML='Your selected TikTok video will appear here after you tap Watch video.';
+     videoBox.innerHTML='Your selected TikTok video will appear here.';
      watchButton.style.display='block';
      watchButton.textContent='Watch '+c+' video';
      watchButton.disabled=false;
@@ -2396,7 +2396,7 @@ function addActivity(title,amount){
     const videoId=extractTikTokId(url);
     if(!videoId){videoStatus.textContent='Add a valid TikTok video link for this creator first.';return;}
     watchButton.style.display='none';
-    videoStatus.textContent='Video playing. Your view reward will be added automatically when playback finishes.';
+    videoStatus.textContent='Video playing. Your status view reward will be added automatically when playback finishes.';
     videoBox.innerHTML='';
     const frame=document.createElement('iframe');
     frame.src='https://www.tiktok.com/player/v1/'+videoId+'?controls=1&progress_bar=1&play_button=1&volume_control=1&fullscreen_button=1&loop=0&autoplay=1';
@@ -2417,7 +2417,7 @@ function addActivity(title,amount){
       creatorRewarded=true;
       window.removeEventListener('message',onTikTokMessage);
       complete('Influencer status view — '+selectedCreator,5000);
-      videoStatus.textContent='Video completed. Your ₦5,000 view reward has been added to your activity and balance.';
+      videoStatus.textContent='Video completed. Your ₦5,000 status view reward has been added to your activity and balance.';
      }
     };
     window.addEventListener('message',onTikTokMessage);
