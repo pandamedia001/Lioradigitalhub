@@ -12,7 +12,26 @@
 .logo{display:flex;align-items:center;min-width:120px}.logo img{width:auto;height:42px;max-width:170px;object-fit:contain}.home{color:#f0dfb7;text-decoration:none;font-size:14px;font-weight:600;display:flex;align-items:center;gap:9px;transition:.2s}.home:hover{color:var(--gold2)}.home span{font-size:21px}
 main{width:min(100% - 32px,590px);margin:42px auto 48px}.intro{text-align:center;margin-bottom:26px}.eyebrow{color:var(--gold2);font-size:11px;font-weight:650;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:12px}.intro h1{font-family:"Times New Roman",Times,serif;font-weight:700;font-size:clamp(27px,4.8vw,34px);margin:0 0 10px;letter-spacing:-.35px;color:#fff8e9}.intro p{color:#aaa;font-size:14px;line-height:1.6;margin:0}
 .form-card{background:linear-gradient(145deg,rgba(255,255,255,.055),transparent 34%),#151515;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,32px);box-shadow:0 18px 55px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.035)}
-.package-note{display:none;margin:0 0 21px;padding:12px 14px;border:1px solid rgba(217,173,69,.22);border-radius:10px;background:rgba(217,173,69,.06);font-size:13px;color:#d8c79f}.package-note strong{color:var(--gold2)}
+/* Activation fee box */
+.package-note {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 88%;
+    padding: 13px 20px;
+    margin: 12px 0 16px;
+    font-size: 15px;
+    font-weight: 550;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Activation fee amount */
+.package-note strong {
+    font-size: 19px;
+    font-weight: 700;
+    margin-left: 5px;
+}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:17px 14px}.field.full{grid-column:1/-1}.field label{display:block;font-size:13px;font-weight:600;color:#f1e7d1;margin:0 0 8px}.field input,.field select{width:100%;height:48px;border:1px solid #303030;border-radius:9px;background:#111111;color:#f5f0e4;padding:0 13px;font-size:14px;font-weight:400;outline:none;transition:border .2s,box-shadow .2s}.field input:focus,.field select:focus{border-color:rgba(217,173,69,.8);box-shadow:0 0 0 3px rgba(217,173,69,.09)}.field input::placeholder{color:#666}.field select{color:#ddd}.hint{font-size:11px;color:#777;margin-top:6px;line-height:1.4}.error{font-size:11px;color:var(--danger);min-height:14px;margin-top:5px}.password-wrap{position:relative}.password-wrap input{padding-right:48px}.toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:28px;height:28px;display:grid;place-items:center;background:none;border:0;color:#c9b477;cursor:pointer;padding:0}.toggle svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.strength{margin-top:9px}.strength-track{height:4px;background:#343434;border-radius:8px;overflow:hidden}.strength-fill{height:100%;width:0;border-radius:8px;transition:width .25s,background .25s}.strength-meta{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:11px;color:#929292}.strength-label{font-weight:600;color:#aaa}.strength-label.weak{color:#ff7777}.strength-label.normal{color:#e6bd60}.strength-label.strong{color:#70d6a0}
 .terms{display:flex;gap:10px;align-items:flex-start;margin:14px 0 19px;color:#d0c8b8;font-weight:500;font-size:12px;line-height:1.6}.terms input{accent-color:var(--gold);margin-top:3px;width:15px;height:15px;flex:none}.terms a{color:var(--gold2);text-decoration:none}.terms a:hover{text-decoration:underline}
 .submit{width:100%;height:54px;border:1px solid #e6c36d;border-radius:10px;background:linear-gradient(110deg,#bd9130,#f0d17e 48%,#c49a3d);color:#171107;font-weight:650;font-size:16px;letter-spacing:.1px;cursor:pointer;box-shadow:0 7px 22px rgba(217,173,69,.12);transition:opacity .25s,transform .2s}.submit:hover{transform:translateY(-1px);filter:brightness(1.06)}.submit:disabled{opacity:.48;cursor:wait;transform:none}.submit.loading{opacity:.48;filter:saturate(.78);transform:scale(.99)}.submit.loading .btn-text{opacity:1}.submit .spinner{display:none;width:21px;height:21px;border:2px solid rgba(0,0,0,.25);border-top-color:#171107;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-left:9px}.submit.loading .spinner{display:inline-block}.submit.loading .btn-text{opacity:1;font-size:16px}
@@ -78,7 +97,7 @@ body,button,input,select,textarea{
     <p>Enter your details below to create your account and continue to the next step.</p>
   </section>
   <section class="form-card">
-    <div class="package-note" id="packageNote">Activation fee: <strong id="packageName">₦15,000</strong></div>
+    <div class="package-note" id="packageNote">Shareholder Access Fee: <strong id="packageName">₦15,000</strong></div>
     <form id="registerForm" novalidate>
       <div class="fields">
         <div class="field full">
