@@ -544,34 +544,54 @@ setTimeout(() => {
 })();
 </script>
 
+
 <script>
 (function () {
   "use strict";
 
-  // Shared by reward.html and payment.html. Both pages must use this exact key.
-  const STORAGE_KEY = "lioraDiscountEndsAt_v2";
   const DURATION_MS = 30 * 60 * 1000;
   const display = document.getElementById("discountCountdown");
+
   if (!display) return;
 
-  function getDeadline() {
-    let savedDeadline = 0;
+  // Read the current registration saved by register.html
+  let registration;
 
-    try {
-      savedDeadline = Number(localStorage.getItem(STORAGE_KEY));
-    } catch (_) {}
-
-    if (!Number.isFinite(savedDeadline) || savedDeadline <= Date.now()) {
-      savedDeadline = Date.now() + DURATION_MS;
-      try {
-        localStorage.setItem(STORAGE_KEY, String(savedDeadline));
-      } catch (_) {}
-    }
-
-    return savedDeadline;
+  try {
+    registration = JSON.parse(
+      localStorage.getItem("lioraRegistration") || "null"
+    );
+  } catch (error) {
+    console.error("Unable to read Liora registration:", error);
+    return;
   }
 
-  const deadline = getDeadline();
+  // Use the unique Firebase UID for this account
+  const uid = registration && registration.uid;
+
+  if (!uid) {
+    console.error("Registration UID not found. Countdown not started.");
+    return;
+  }
+
+  // Each account has its own independent countdown
+  const STORAGE_KEY = "lioraDiscountEndsAt_v2_" + uid;
+
+  let deadline;
+
+  try {
+    deadline = Number(localStorage.getItem(STORAGE_KEY));
+
+    // Start a fresh 30 minutes for a new registration
+    if (!Number.isFinite(deadline) || deadline <= 0) {
+      deadline = Date.now() + DURATION_MS;
+      localStorage.setItem(STORAGE_KEY, String(deadline));
+    }
+  } catch (error) {
+    console.error("Unable to access countdown storage:", error);
+    return;
+  }
+
   const countdown = display.closest(".discount-countdown");
   let timerId = null;
 
@@ -579,23 +599,41 @@ setTimeout(() => {
     const remainingMs = deadline - Date.now();
 
     if (remainingMs <= 0) {
+      display.textContent = "00:00";
+
       if (countdown) {
-        countdown.innerHTML = '<i></i><span>DISCOUNT PERIOD ENDED</span>';
+        countdown.innerHTML =
+          '<i></i><span>DISCOUNT PERIOD ENDED</span>';
       }
-      if (timerId !== null) clearInterval(timerId);
+
+      if (timerId !== null) {
+        clearInterval(timerId);
+      }
+
       return;
     }
 
     const totalSeconds = Math.ceil(remainingMs / 1000);
-    const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
-    const seconds = String(totalSeconds % 60).padStart(2, "0");
+
+    const minutes = String(
+      Math.floor(totalSeconds / 60)
+    ).padStart(2, "0");
+
+    const seconds = String(
+      totalSeconds % 60
+    ).padStart(2, "0");
+
     display.textContent = minutes + ":" + seconds;
   }
 
   updateCountdown();
+
   timerId = setInterval(updateCountdown, 1000);
+
+  // Preserve the countdown when leaving and returning to the browser
   document.addEventListener("visibilitychange", updateCountdown);
   window.addEventListener("pageshow", updateCountdown);
+
 })();
 </script>
 
