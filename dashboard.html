@@ -1139,7 +1139,7 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
       <div class="user-avatar" id="headerAvatar">U</div>
       <div class="user-info">
         <span class="greeting-text" id="timeGreeting">Welcome back!</span>
-        <h1 class="username-display" id="headerUsername">User</h1>
+        <h1 class="username-display" id="headerUsername">Favour media</h1>
       </div>
     </div>
     <div class="header-right">
@@ -1249,12 +1249,12 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
       
       <!-- Card 1: Activity balance -->
 <div class="balance-card">
-  <div class="card-watermark">V</div>
+  <div class="card-watermark">L</div>
   
   <!-- Header with badge and top-right logo placeholder -->
   <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
     <div class="card-badge" style="margin: 0;">
-      <i class="fa-solid fa-chart-line"></i> Activity balance
+      <i class="fa-solid fa-chart-line"></i> Available balance
     </div>
     <!-- Small Logo Image Placeholder -->
     <img src="logo.png" alt="Liora Logo" class="card-brand-logo" style="height: 18px; width: auto; object-fit: contain;" />
@@ -1265,19 +1265,19 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
   </div>
   
   <div class="card-footer-info">
-    <span>Available to Withdraw</span>
+    <span>Shareholder</span>
     <i class="fa-brands fa-cc-mastercard" style="font-size: 20px;"></i>
   </div>
 </div>
 
 <!-- Card 2: Task earnings -->
 <div class="balance-card">
-  <div class="card-watermark">V</div>
+  <div class="card-watermark">L</div>
   
   <!-- Header with badge and top-right logo placeholder -->
   <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
     <div class="card-badge" style="margin: 0;">
-      <i class="fa-solid fa-briefcase"></i> Task earnings
+      <i class="fa-solid fa-briefcase"></i> Activity earnings
     </div>
     <!-- Small Logo Image Placeholder -->
     <img src="logo.png" alt="Liora Logo" class="card-brand-logo" style="height: 18px; width: auto; object-fit: contain;" />
@@ -1381,7 +1381,7 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
       </div>
       <div class="progress-footer">
         <span id="progressPercent">25% Completed</span>
-        <span id="progressGoalText">Daily Goal: ₦4,000</span>
+        <span id="progressGoalText">Daily Goal: ₦45,000</span>
       </div>
     </div>
   </section>
@@ -1451,9 +1451,9 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
   <div class="modal-overlay" id="claimModalOverlay">
     <div class="glass-modal">
       <div class="modal-badge">System Award</div>
-      <h3 class="modal-title">Congrats! You've Received Your Today's Login Reward Bonus</h3>
+      <h3 class="modal-title">Congrats! You've Received Your weekly dividend reward</h3>
       <p class="modal-sub-title">Claim your active bonus to update your secondary wallet immediately.</p>
-      <div class="modal-amount" id="popupClaimAmount">₦4,000</div>
+      <div class="modal-amount" id="popupClaimAmount">₦25,000</div>
       <button class="modal-btn action-box-filled" id="claimRewardBtn">Claim Reward</button>
     </div>
   </div>
@@ -1524,7 +1524,7 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
       </div>
       
       <h3 class="streak-title">REWARD CLAIMED</h3>
-      <p class="streak-sub-text">YOU HAVE ALREADY SECURED TODAY'S LOGIN REWARD. PLEASE WAIT FOR YOUR NEXT CYCLE TO UNLOCK YOUR NEXT STREAK BONUS.</p>
+      <p class="streak-sub-text">YOU HAVE ALREADY SECURED THIS WEEK'S DIVIDEND REWARD. PLEASE WAIT FOR YOUR NEXT CYCLE TO UNLOCK YOUR NEXT STREAK BONUS.</p>
       
       <div class="timer-card-box">
         <span class="timer-card-label">NEXT REWARD AVAILABLE IN</span>
@@ -1626,7 +1626,7 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
       }
 
       const updateBalancesDisplay = () => {
-        const activityNaira = 25000;
+        const activityNaira = 2575000;
         const workNaira = defaultWorkBalance;
         const totalNaira = activityNaira + workNaira;
 
@@ -1635,8 +1635,8 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
           document.getElementById('workBalanceDisplay').textContent = `₦${workNaira.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
           document.getElementById('totalBalanceDisplay').textContent = `₦${totalNaira.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
           document.getElementById('refEarningsVal').textContent = "₦0.00";
-          document.getElementById('progressGoalText').textContent = "Daily Goal: ₦4,000";
-          document.getElementById('popupClaimAmount').textContent = "₦4,000";
+          document.getElementById('progressGoalText').textContent = "Daily Goal: ₦45,000";
+          document.getElementById('popupClaimAmount').textContent = "₦25,000";
         } else {
           const activityEuro = activityNaira / 2000;
           const workEuro = workNaira / 2000;
@@ -1647,7 +1647,7 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
           document.getElementById('totalBalanceDisplay').textContent = `€${totalEuro.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
           document.getElementById('refEarningsVal').textContent = "€0.00";
           document.getElementById('progressGoalText').textContent = "Daily Goal: €2.00";
-          document.getElementById('popupClaimAmount').textContent = "€2.00";
+          document.getElementById('popupClaimAmount').textContent = "$12.50";
         }
       };
 
@@ -1726,7 +1726,7 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
             <div class="activity-item-left">
               <div class="activity-icon-container"><i class="fa-solid fa-arrow-down-left"></i></div>
               <div class="activity-details">
-                <span class="activity-name">Login Reward Bonus</span>
+                <span class="activity-name">Weekly dividend Reward Bonus</span>
                 <span class="activity-time">${typeof formatTimestamp === 'function' ? formatTimestamp(claim.time) : new Date(claim.time).toLocaleTimeString()}</span>
               </div>
             </div>
@@ -1786,7 +1786,7 @@ body{font-feature-settings:"ss01" on,"cv11" on;-webkit-font-smoothing:antialiase
           localStorage.setItem(claimLockKey, now);
 
           if (typeof defaultWorkBalance !== 'undefined') {
-            defaultWorkBalance += 4000;
+            defaultWorkBalance += 25000;
             localStorage.setItem(`liora_work_balance_${activeUsername}`, defaultWorkBalance);
           }
           if (typeof updateBalancesDisplay === 'function') {
