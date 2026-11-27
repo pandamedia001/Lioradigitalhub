@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>Liora | Review Your Details</title>
+  <style>
+    :root{
+      --black:#080808;--panel:#11110f;--panel2:#171510;--gold:#d9ad45;
+      --gold2:#f0cf78;--text:#f7f4ec;--muted:#a9a397;
+      --line:rgba(217,173,69,.2);--green:#83d7a7;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;min-height:100vh;color:var(--text);
+      background:radial-gradient(ellipse at 50% -18%,rgba(217,173,69,.15),transparent 48%),#090909;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    .topbar{
+      height:72px;padding:0 clamp(18px,5vw,58px);display:flex;align-items:center;
+      justify-content:space-between;border-bottom:1px solid rgba(217,173,69,.14);
+      background:rgba(8,8,8,.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+    }
+    .logo{display:flex;align-items:center;min-width:110px}
+    .logo img{height:39px;width:auto;max-width:155px;object-fit:contain}
+    .secure{display:flex;align-items:center;gap:8px;color:#c9c1ae;font-size:12px;letter-spacing:.02em}
+    .secure svg{width:15px;height:15px;stroke:var(--gold2);fill:none;stroke-width:1.7}
+    main{width:min(100% - 32px,570px);margin:42px auto 54px}
+    .intro{text-align:center;margin-bottom:24px}
+    .step{display:inline-flex;align-items:center;gap:7px;color:var(--gold2);font-size:10px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;margin-bottom:15px}
+    .step:before{content:"";width:17px;height:1px;background:var(--gold)}
+    .step:after{content:"";width:17px;height:1px;background:var(--gold)}
+    h1{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;font-size:clamp(27px,5vw,35px);font-weight:650;letter-spacing:-.045em;line-height:1.12;margin:0 0 10px}
+    .intro p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+    .status-card{
+      border:1px solid var(--line);border-radius:19px;padding:20px 21px;margin-bottom:15px;
+      background:linear-gradient(145deg,rgba(30,26,17,.96),rgba(15,15,14,.98));
+      box-shadow:0 18px 55px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.035);
+    }
+    .status-head{display:flex;align-items:center;gap:13px}
+    .status-icon{
+      width:43px;height:43px;flex:0 0 43px;border-radius:14px;display:grid;place-items:center;
+      background:rgba(217,173,69,.12);border:1px solid rgba(217,173,69,.22);
+    }
+    .status-icon svg{width:21px;height:21px;stroke:var(--gold2);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;animation:pending-spin 1.35s linear infinite}
+    @keyframes pending-spin{to{transform:rotate(360deg)}}
+    .detail-label{font-size:13px}
+    .detail-value{font-size:15px;font-weight:600}
+    .reward-row {
+    margin-top: 5px;
+    padding-top: 17px !important;
+    border-top: 1px solid rgba(217,173,69,.28);
+}
+
+.reward-label {
+    background: linear-gradient(
+        105deg,
+        #fff8d9 0%,
+        #ffe89a 52%,
+        #f6d16a 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ffe89a;
+    font-size: 12.5px;
+    font-weight: 850;
+    letter-spacing: .045em;
+    line-height: 1.5;
+}
+
+.reward-value {
+    background: linear-gradient(
+        105deg,
+        #fff8d9 0%,
+        #ffe89a 52%,
+        #f6d16a 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ffe89a;
+    font-family: -apple-system, BlinkMacSystemFont,
+        "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 850;
+    letter-spacing: -.02em;
+    line-height: 1.5;
+    text-align: right;
+}
+    .status-copy{min-width:0;flex:1}
+    .status-copy strong{display:block;font-size:15px;font-weight:650;letter-spacing:-.015em;margin-bottom:4px}
+    .status-copy span{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+    .pending{
+      flex:0 0 auto;border:1px solid rgba(240,207,120,.28);background:rgba(217,173,69,.1);
+      color:var(--gold2);border-radius:999px;padding:7px 10px;font-size:10px;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+    }
+    .details-card{
+      border:1px solid rgba(255,255,255,.09);border-radius:19px;padding:21px;
+      background:linear-gradient(155deg,rgba(25,25,23,.97),rgba(15,15,15,.98));
+      box-shadow:0 18px 50px rgba(0,0,0,.27),inset 0 1px rgba(255,255,255,.035);
+    }
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}
+    .section-title h2{font-size:14px;font-weight:650;letter-spacing:-.01em;margin:0}
+    .section-title span{font-size:10px;color:#8f897c;letter-spacing:.1em;text-transform:uppercase}
+    .detail-row{
+      display:grid;grid-template-columns:minmax(105px, .72fr) minmax(0,1.5fr);
+      align-items:start;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.065);
+    }
+    .detail-row:first-of-type{padding-top:2px}
+    .detail-row:last-child{border-bottom:0;padding-bottom:1px}
+    .detail-label{font-size:12px;color:#a9a397;line-height:1.5}
+    .detail-value{font-size:13px;color:#f5f1e8;font-weight:550;text-align:right;line-height:1.5;overflow-wrap:anywhere;word-break:break-word}
+        .review-note{
+      display:flex;gap:11px;margin:17px 2px 20px;color:#bcb5a7;font-size:12px;line-height:1.65;
+    }
+    .review-note svg{width:17px;height:17px;flex:0 0 17px;margin-top:1px;stroke:var(--gold2);fill:none;stroke-width:1.7}
+    .review-note strong{color:#eee6d4;font-weight:650}
+    .cta{
+      width:100%;min-height:54px;border:1px solid rgba(255,224,151,.48);border-radius:13px;
+      background:linear-gradient(180deg,#f1d17d,#c99a36);color:#171108;
+      font:700 14px -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+      letter-spacing:.005em;display:flex;align-items:center;justify-content:center;gap:10px;
+      cursor:pointer;box-shadow:0 8px 24px rgba(201,154,54,.17),inset 0 1px rgba(255,255,255,.55);
+      transition:transform .18s ease,filter .18s ease,box-shadow .18s ease;
+    }
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.04);box-shadow:0 11px 28px rgba(201,154,54,.23)}
+    .cta:active{transform:translateY(0) scale(.99)}
+    .cta svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .footnote{text-align:center;margin:15px 0 0;color:#777164;font-size:11px;line-height:1.6}
+    footer{text-align:center;padding:23px 16px 30px;border-top:1px solid rgba(217,173,69,.1);color:#777164;font-size:10px;letter-spacing:.08em}
+    .footer-brand{color:var(--gold2);font-size:14px;font-weight:750;letter-spacing:.23em;margin-bottom:6px}
+    .footer-tag{font-size:10px;color:#94866a;letter-spacing:.08em;margin-bottom:10px}
+    .missing{display:none;margin:16px 0;padding:14px;border:1px solid rgba(255,180,90,.25);border-radius:12px;color:#e6c98d;background:rgba(217,173,69,.07);font-size:13px;line-height:1.55}
+    @media(max-width:480px){
+      .topbar{height:65px}.logo img{height:34px;max-width:135px}
+      main{margin:30px auto 40px}.status-card{padding:17px 15px;border-radius:16px}
+      .details-card{padding:18px 15px;border-radius:16px}
+      .detail-row{grid-template-columns:minmax(94px,.7fr) minmax(0,1.45fr);gap:10px;padding:12px 0}
+       .detail-label{font-size:12px}.detail-value{font-size:14px}.reward-label{font-size:12px}.reward-value{font-size:13.5px}
+      .pending{font-size:9px;padding:6px 8px}
+    }
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html" aria-label="Liora home"><img src="logo.png" alt="Liora"></a>
+    <div class="secure">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+      Secure activation
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="step">COMPLETE YOUR ACCOUNT SET-UP</div>
+      <h1>Review Your Details</h1>
+      <p>Please confirm that your information is correct before proceeding.</p>
+    </section>
+
+    <section class="status-card" aria-label="Activation status">
+      <div class="status-head">
+        <div class="status-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></svg>
+        </div>
+        <div class="status-copy">
+          <strong>Account created successfully</strong>
+          <span>Your Liora shareholder account is awaiting activation.</span>
+        </div>
+        <span class="pending">Pending</span>
+      </div>
+    </section>
+
+    <section class="details-card">
+      <div class="section-title">
+        <h2>Registration details</h2>
+        <span>Review carefully</span>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Full name</div>
+        <div class="detail-value" id="fullName">—</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Email address</div>
+        <div class="detail-value" id="email">—</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Phone number</div>
+        <div class="detail-value" id="phone">—</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Country</div>
+        <div class="detail-value" id="country">—</div>
+      </div>
+      <div class="detail-row reward-row">
+        <div class="detail-label reward-label">INSTANT SIGN-UP REWARD</div>
+        <div class="detail-value reward-value" id="signupReward">Selecting your reward…</div>
+      </div>
+    </section>
+
+    <div class="review-note">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>
+      <div><strong>Before you continue:</strong> Make sure all the details above are correct. Your information will be used to process your Liora account activation.</div>
+    </div>
+
+    <button class="cta" id="proceedBtn" type="button">
+      Proceed to Activation
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+    <p class="footnote">Your account will remain pending until your activation is reviewed and confirmed.</p>
+    <div class="missing" id="missingData">We couldn't find your saved registration details on this device. Please return to the registration page and try again.</div>
+  </main>
+
+ <footer>
+  © 2026 Liora. All rights reserved.
+</footer>
+
+  <script>
+    // The registration page stores only non-sensitive profile details here.
+    let saved = (() => {
+      try { return JSON.parse(localStorage.getItem('lioraRegistration') || 'null'); }
+      catch (_) { return null; }
+    })();
+
+    const rewardOptions = [
+      "itel 10,000 mAh Power Bank",
+      "itel 20,000 mAh Power Bank",
+      "Oraimo 10,000 mAh Power Bank",
+      "Oraimo 20,000 mAh Power Bank",
+      "Oraimo 30,000 mAh Power Bank",
+      "New Age 20,000 mAh Power Bank",
+      "New Age 30,000 mAh Power Bank",
+      "New Age 40,000 mAh Power Bank",
+      "Anker 10,000 mAh Power Bank",
+      "Anker 20,000 mAh Power Bank",
+      "Baseus 10,000 mAh Power Bank",
+      "Baseus 20,000 mAh Power Bank",
+      "Romoss 20,000 mAh Power Bank",
+      "Romoss 30,000 mAh Power Bank",
+      "Xiaomi 10,000 mAh Power Bank",
+      "Xiaomi 20,000 mAh Power Bank",
+      "Oraimo 40,000 mAh Power Bank",
+      "Awei 20,000 mAh Power Bank",
+      "Havit 20,000 mAh Power Bank",
+      "Promate 20,000 mAh Power Bank"
+    ];
+
+    // Keep the selected reward with this registration. It changes only when
+    // registration.html replaces the registration record for a new account.
+    if (saved && !saved.signupReward) {
+      const previousReward = (() => {
+        try { return localStorage.getItem("lioraLastSignupReward") || ""; }
+        catch (_) { return ""; }
+      })();
+      const availableRewards = rewardOptions.filter(item => item !== previousReward);
+      saved.signupReward = availableRewards[Math.floor(Math.random() * availableRewards.length)];
+      try {
+        localStorage.setItem("lioraRegistration", JSON.stringify(saved));
+        localStorage.setItem("lioraLastSignupReward", saved.signupReward);
+      } catch (_) {}
+    }
+
+    document.getElementById("signupReward").textContent =
+      saved?.signupReward || "Reward details unavailable";
+
+    const fields = {
+      fullName: saved?.fullName,
+      email: saved?.email,
+      phone: saved?.phone,
+      country: saved?.country
+    };
+
+    let hasDetails = false;
+    for (const [id, value] of Object.entries(fields)) {
+      const element = document.getElementById(id);
+      if (value && String(value).trim()) {
+        element.textContent = String(value).trim();
+        hasDetails = true;
+      }
+    }
+
+    if (!hasDetails) {
+      document.getElementById('missingData').style.display = 'block';
+    }
+
+    document.getElementById('proceedBtn').addEventListener('click', () => {
+      // Replace this with Liora's official activation/support Telegram link.
+      const activationUrl = 'https://t.me/LIORA_SUPPORT_USERNAME';
+      if (activationUrl.includes('LIORA_SUPPORT_USERNAME')) {
+        alert('The Liora activation Telegram link has not been added yet.');
+        return;
+      }
+      window.location.href = activationUrl;
+    });
+  </script>
+</body>
+</html>
